@@ -2,9 +2,47 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
 
-    <bean id="Doctor" class="com.nazar.soft.Dentist"></bean>
+    <bean id="nazar" class="com.nazar.soft.xml.Surgeon">
+        <constructor-arg name="name" value="Nazar" type="java.lang.String"/>
+        <constructor-arg name="age" value="22" type="int"/>
+    </bean>
+
+    <bean id="drymon" class="com.nazar.soft.xml.Dentist">
+        <constructor-arg name="name" value="Drymon" type="java.lang.String"/>
+        <constructor-arg name="age" value="21" type="int"/>
+    </bean>
+
+    <bean id="alina" class="com.nazar.soft.xml.Therapist">
+        <property name="name" value="Alina"/>
+        <property name="age" value="21"/>
+    </bean>
+
+    <bean id="loot" class="com.nazar.soft.xml.Loot"/>
+
+    <bean id="tanya" class="com.nazar.soft.xml.Student">
+        <property name="name" value="Tanya"/>
+        <property name="loot" ref="loot"/>
+    </bean>
+
+    <bean id="sasha" class="com.nazar.soft.xml.Student">
+        <property name="name" value="Sasha"/>
+        <property name="loot" ref="loot"/>
+    </bean>
+
+
+    <bean id="data" class="com.nazar.soft.Airtel.DataService"/>
+
+    <bean id="hello" class="com.nazar.soft.Airtel.HelloService"/>
+
+    <bean id="smth" class="com.nazar.soft.Airtel.SmthService"/>
+
+    <bean id="airtel" class="com.nazar.soft.Airtel.Airtel">
+        <property name="service" ref="data"/>
+    </bean>
 
 </beans>

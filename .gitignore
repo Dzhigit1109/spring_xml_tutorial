@@ -1,11 +1,11 @@
 .idea/*
-.lib/*
+/lib/
 
 *.class
 
 *.iml
 
-.out/*
+/out/
 
 *.war
 *.jar
